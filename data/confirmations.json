@@ -1,0 +1,51 @@
+[
+    {
+        "id": "SAD26-DBFAB1",
+        "createdAt": "2026-10-11T17:47:04.590Z",
+        "fullName": "ZekDev",
+        "email": "",
+        "phone": "",
+        "organization": "Non spécifiée",
+        "role": "Participant",
+        "days": [
+            "Vendredi 30 oct. : Cérémonie d'ouverture & Grand Panel VAE",
+            "Samedi 31 oct. : Hackathon Inventions & Dégustation des produits",
+            "Dimanche 1er nov. : Remise des Prix & Soirée Gala de Clôture"
+        ],
+        "daysString": "Vendredi 30 oct. : Cérémonie d'ouverture & Grand Panel VAE, Samedi 31 oct. : Hackathon Inventions & Dégustation des produits, Dimanche 1er nov. : Remise des Prix & Soirée Gala de Clôture",
+        "cocktail": "Non précisé",
+        "notes": ""
+    },
+    {
+        "id": "SAD26-87BDEB",
+        "createdAt": "2026-10-11 03:54:31",
+        "fullName": "Ouedraogo Karim",
+        "email": "",
+        "phone": "+226 70 12 34 56",
+        "organization": "Non spécifiée",
+        "role": "Participant",
+        "days": [
+            "Vendredi 30 oct."
+        ],
+        "daysString": "Vendredi 30 oct.",
+        "cocktail": "Non précisé",
+        "notes": ""
+    },
+    {
+        "id": "SAD26-4259F3",
+        "createdAt": "2026-10-08 20:30:08",
+        "fullName": "Moussa OUATTARA",
+        "email": "moussa@example.com",
+        "phone": "+226 70 11 22 33",
+        "organization": "Ouaga Innov",
+        "role": "Professionnel \/ Entreprise",
+        "days": [
+            "day1",
+            "day2",
+            "day3"
+        ],
+        "daysString": "day1, day2, day3",
+        "cocktail": "Oui",
+        "notes": "Test de confirmation directe"
+    }
+]

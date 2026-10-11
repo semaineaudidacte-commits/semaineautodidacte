@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semaine de l'Autodidacte 2026 — 2ᵉ Édition | Ouagadougou</title>
+  <meta name="description" content="Semaine de l'Autodidacte 2026 à Ouagadougou. Thème : Autodidacte, Résilience et Innovation. Programme officiel et confirmation de votre présence.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/img/logo-maquette.png">
+
+  <!-- Google Fonts : Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet">
+
+  <!-- Vanilla CSS Design System (Pixel-perfect reproduction des maquettes) -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       NOTIFICATION TOAST : INSCRIPTION ENREGISTRÉE (HEADER BADGE)
+       ========================================================================= -->
+  <div id="toast-success" class="toast-notification" role="status" aria-live="polite">
+    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+    <span>INSCRIPTION ENREGISTRÉE</span>
+  </div>
+
+  <!-- Canvas Confettis pour la célébration de confirmation -->
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- =========================================================================
+       PAGE 1 : ONE PAGE PRINCIPALE (REPRODUCTION MAQUETTE 1.JPG)
+       ========================================================================= -->
+  <main id="one-page-view" class="page-wrapper">
+    
+    <!-- 1. EN-TÊTE / HERO -->
+    <header class="header-hero">
+      <!-- Logo Officiel (Cerveau + Ampoule + Livre) -->
+      <div class="logo-container animate-hero-logo">
+        <img src="assets/img/logo-maquette.png" alt="Logo Officiel de la Semaine de l'Autodidacte" class="brand-logo" width="85" height="85">
+      </div>
+
+      <!-- Titre de l'événement -->
+      <h1 class="hero-title animate-hero-title">
+        Semaine de l'Autodidacte
+        <span class="year-orange">2026</span>
+      </h1>
+
+      <!-- Badge 2e Édition -->
+      <div class="badge-edition animate-hero-badge">2e Édition</div>
+
+      <!-- Thème officiel -->
+      <div class="theme-box animate-hero-theme">
+        <p class="theme-text">
+          <strong>Thème :</strong> « Autodidacte, Résilience et Innovation : quels mécanismes pour la validation de leurs acquis et expériences dans le monde professionnel ? »
+        </p>
+      </div>
+    </header>
+
+    <!-- 2. PARTENAIRES & SPONSORS OFFICIELS (DÉFILEMENT HORIZONTAL DROITE -> GAUCHE) -->
+    <section class="sponsors-section" aria-label="Partenaires et Sponsors">
+      <div class="sponsors-title">NOS PARTENAIRES & SPONSORS OFFICIELS</div>
+      <div class="marquee-container">
+        <div class="marquee-track">
+          <!-- Groupe 1 de logos partenaires -->
+          <div class="marquee-group">
+            <div class="sponsor-item" title="AFCON MEDIA">
+              <img src="assets/img/partenaire-afcon.png" alt="AFCON MEDIA">
+            </div>
+            <div class="sponsor-item" title="o.studio">
+              <img src="assets/img/partenaire-studio.png" alt="o.studio">
+            </div>
+            <div class="sponsor-item" title="SYA VIBES">
+              <img src="assets/img/partenaire-syavibes.png" alt="SYA VIBES">
+            </div>
+            <div class="sponsor-item" title="Carey Nova">
+              <img src="assets/img/partenaire-careynova.png" alt="Carey Nova">
+            </div>
+            <div class="sponsor-item" title="YIKI">
+              <img src="assets/img/partenaire-yiki.png" alt="YIKI">
+            </div>
+            <div class="sponsor-item" title="Yon-Wook">
+              <img src="assets/img/partenaire-yonwook.png" alt="Yon-Wook">
+            </div>
+            <div class="sponsor-item" title="L'Anacardier">
+              <img src="assets/img/partenaire-anacardier.png" alt="L'Anacardier">
+            </div>
+            <div class="sponsor-item" title="Art & Culture">
+              <img src="assets/img/partenaire-sculpture.png" alt="Partenaire Culturel">
+            </div>
+            <div class="sponsor-item" title="RCPB - Réseau des Caisses Populaires du Burkina">
+              <img src="assets/img/partenaire-rcpb.png" alt="RCPB">
+            </div>
+          </div>
+          <!-- Groupe 2 (Duplicata pour boucle infinie parfaite et continue) -->
+          <div class="marquee-group" aria-hidden="true">
+            <div class="sponsor-item" title="AFCON MEDIA">
+              <img src="assets/img/partenaire-afcon.png" alt="AFCON MEDIA">
+            </div>
+            <div class="sponsor-item" title="o.studio">
+              <img src="assets/img/partenaire-studio.png" alt="o.studio">
+            </div>
+            <div class="sponsor-item" title="SYA VIBES">
+              <img src="assets/img/partenaire-syavibes.png" alt="SYA VIBES">
+            </div>
+            <div class="sponsor-item" title="Carey Nova">
+              <img src="assets/img/partenaire-careynova.png" alt="Carey Nova">
+            </div>
+            <div class="sponsor-item" title="YIKI">
+              <img src="assets/img/partenaire-yiki.png" alt="YIKI">
+            </div>
+            <div class="sponsor-item" title="Yon-Wook">
+              <img src="assets/img/partenaire-yonwook.png" alt="Yon-Wook">
+            </div>
+            <div class="sponsor-item" title="L'Anacardier">
+              <img src="assets/img/partenaire-anacardier.png" alt="L'Anacardier">
+            </div>
+            <div class="sponsor-item" title="Art & Culture">
+              <img src="assets/img/partenaire-sculpture.png" alt="Partenaire Culturel">
+            </div>
+            <div class="sponsor-item" title="RCPB - Réseau des Caisses Populaires du Burkina">
+              <img src="assets/img/partenaire-rcpb.png" alt="RCPB">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SECTION PROGRAMME (J-1, J-2, J-3) -->
+    <section class="program-section" aria-label="Programme officiel">
+      <div class="section-header reveal-on-scroll">
+        <h2 class="section-title">PROGRAMME</h2>
+        <div class="orange-divider"></div>
+        <p class="section-subtitle">3 journées d'immersion</p>
+      </div>
+
+      <div class="program-timeline">
+        
+        <!-- J-1 -->
+        <article class="program-day reveal-on-scroll" style="--stagger-delay: 0.1s;">
+          <div class="day-badge">J-1</div>
+          <h3 class="day-title">Cérémonie d'Ouverture & Grand Panel</h3>
+          <div class="day-date">
+            <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
+            <span>Vendredi 30 Octobre 2026 • 08h30 – 17h00</span>
+          </div>
+          <p class="day-description">
+            Lancement officiel des travaux en présence des autorités, suivi du grand panel institutionnel avec PATCOM, le CAVAIF et l'APEN sur le cadre national de la Validation des Acquis de l'Expérience (VAE) et la reconnaissance juridique des autodidactes.
+          </p>
+        </article>
+
+        <!-- J-2 -->
+        <article class="program-day reveal-on-scroll" style="--stagger-delay: 0.2s;">
+          <div class="day-badge">J-2</div>
+          <h3 class="day-title">Hackathon & Prototypage</h3>
+          <div class="day-date">
+            <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
+            <span>Samedi 31 Octobre 2026 • 08h00 – 18h30</span>
+          </div>
+          <p class="day-description">
+            Laboratoire d'ingénierie collaborative : conception et prototypage accéléré de l'Application Mobile pour recenser et protéger les inventions burkinabè, accompagnés de mentors experts, de pitchs techniques et d'une dégustation des créations agroalimentaires locales.
+          </p>
+        </article>
+
+        <!-- J-3 -->
+        <article class="program-day reveal-on-scroll" style="--stagger-delay: 0.3s;">
+          <div class="day-badge">J-3</div>
+          <h3 class="day-title">Distinctions, Prix & Soirée de Gala</h3>
+          <div class="day-date">
+            <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
+            <span>Dimanche 1er Novembre 2026 • 14h00 – 21h00</span>
+          </div>
+          <p class="day-description">
+            Restitution solennelle des prototypes du hackathon, attribution des prix honorifiques aux lauréats, signature officielle du manifeste national de l'autodidaxie et cocktail dînatoire de prestige réunissant institutions, investisseurs et makers.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 4. SECTION CONFIRMER VOTRE PRÉSENCE -->
+    <section class="rsvp-section" aria-label="Confirmation de présence">
+      <div class="section-header reveal-on-scroll">
+        <h2 class="section-title">CONFIRMER VOTRE PRÉSENCE</h2>
+        <div class="orange-divider"></div>
+        <p class="section-subtitle">Veuillez remplir ce formulaire pour confirmer votre présence</p>
+      </div>
+
+      <div class="form-card reveal-on-scroll">
+        <form id="rsvp-form" novalidate>
+          
+          <!-- Champ Nom & Prénom -->
+          <div class="form-group">
+            <label for="full-name" class="form-label">
+              Nom & Prénom <span class="req">*</span>
+            </label>
+            <div class="input-wrapper">
+              <span class="input-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </span>
+              <input type="text" id="full-name" name="fullName" class="form-input" placeholder="Votre nom et prénom" required autocomplete="name">
+            </div>
+            <div id="name-error" class="error-message">Veuillez renseigner votre nom et prénom.</div>
+          </div>
+
+          <!-- Journées de participation souhaitées -->
+          <div class="form-group">
+            <label class="form-label">
+              Journées de participation souhaitées <span class="req">*</span>
+            </label>
+            <div class="days-options-list">
+              
+              <!-- Option J-1 -->
+              <label class="day-option-card is-checked">
+                <input type="checkbox" name="days" value="J-1" checked>
+                <span class="custom-checkbox-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </span>
+                <span class="option-text">
+                  <strong>Vendredi 30 oct. :</strong> Cérémonie d'ouverture & Grand Panel VAE
+                </span>
+              </label>
+
+              <!-- Option J-2 -->
+              <label class="day-option-card is-checked">
+                <input type="checkbox" name="days" value="J-2" checked>
+                <span class="custom-checkbox-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </span>
+                <span class="option-text">
+                  <strong>Samedi 31 oct. :</strong> Hackathon Inventions & Dégustation des produits
+                </span>
+              </label>
+
+              <!-- Option J-3 -->
+              <label class="day-option-card is-checked">
+                <input type="checkbox" name="days" value="J-3" checked>
+                <span class="custom-checkbox-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </span>
+                <span class="option-text">
+                  <strong>Dimanche 1er nov. :</strong> Remise des Prix & Soirée Gala de Clôture
+                </span>
+              </label>
+
+            </div>
+            <div id="days-error" class="error-message">Veuillez sélectionner au moins une journée de présence.</div>
+          </div>
+
+          <!-- Bouton Confirmer -->
+          <button type="submit" id="submit-btn" class="btn-submit">
+            <span class="btn-text">Confirmer</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+          </button>
+
+        </form>
+      </div>
+    </section>
+
+    <!-- PIED DE PAGE -->
+    <footer class="site-footer">
+      <p>© 2026 Semaine de l'Autodidacte • 2ᵉ Édition • Ouagadougou, Burkina Faso</p>
+    </footer>
+
+  </main>
+
+  <!-- =========================================================================
+       PAGE 2 : ÉCRAN DE REMERCIEMENT (REPRODUCTION MAQUETTE 2.JPG)
+       Affichage instantané avec transition fluide (Option 1)
+       ========================================================================= -->
+  <aside id="thank-you-view" class="page-wrapper thank-you-view" aria-label="Confirmation et Remerciement">
+    <div class="thank-you-card">
+      
+      <!-- Titre de remerciement -->
+      <h2 class="thank-you-title">Merci pour votre engagement !</h2>
+
+      <!-- Trait de séparation orange -->
+      <div class="orange-divider"></div>
+
+      <!-- Message officiel -->
+      <p class="thank-you-desc">
+        Votre présence à la <strong>Semaine de l'Autodidacte 2026</strong> a bien été confirmée. Nous sommes impatients de vous compter parmi nous pour célébrer et valoriser le génie créatif burkinabè.
+      </p>
+
+      <!-- Actions -->
+      <div class="thank-you-actions">
+        <!-- Bouton Retour à l'accueil (Orange) -->
+        <button id="btn-back-home" class="btn-back-home">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+          <span>Retour à l'accueil du site</span>
+        </button>
+
+        <!-- Bouton Partager sur WhatsApp (Vert WhatsApp) -->
+        <button id="btn-share-whatsapp" class="btn-share-whatsapp">
+          <img src="assets/img/whatsapp.png" alt="WhatsApp" class="whatsapp-icon-img" width="22" height="22">
+          <span>Partager l'événement sur WhatsApp</span>
+        </button>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- Script Vanilla JavaScript -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

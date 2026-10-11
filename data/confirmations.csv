@@ -1,0 +1,4 @@
+﻿ID;"Date Inscription";"Nom Complet";Email;Telephone;Organisation;Role;"Jours confirmes";Cocktail;"Message / Notes"
+SAD26-4259F3;"2026-10-08 20:30:08";"Moussa OUATTARA";moussa@example.com;"+226 70 11 22 33";"Ouaga Innov";"Professionnel / Entreprise";"day1, day2, day3";Oui;"Test de confirmation directe"
+SAD26-87BDEB;"2026-10-11 03:54:31";"Ouedraogo Karim";;"+226 70 12 34 56";"Non spécifiée";Participant;"Vendredi 30 oct.";"Non précisé";
+SAD26-DBFAB1;2026-10-11T17:47:04.590Z;ZekDev;;;"Non spécifiée";Participant;"Vendredi 30 oct. : Cérémonie d'ouverture & Grand Panel VAE, Samedi 31 oct. : Hackathon Inventions & Dégustation des produits, Dimanche 1er nov. : Remise des Prix & Soirée Gala de Clôture";"Non précisé";
