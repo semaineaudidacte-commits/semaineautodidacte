@@ -40,14 +40,20 @@
   <div id="envelope-overlay" class="envelope-overlay" aria-modal="true" role="dialog">
     <div class="envelope-modal">
 
+      <!-- Bouton Passer en haut à droite -->
+      <button id="skip-envelope-btn" class="skip-envelope-btn" type="button" title="Accéder directement au site">
+        <span>Passer</span> ✕
+      </button>
+
       <div class="envelope-container">
 
-        <!-- En-tête au-dessus de l'enveloppe -->
+        <!-- En-tête de bienvenue au-dessus de l'enveloppe -->
         <div class="envelope-header-text">
-          <p class="envelope-hint">Touchez l'enveloppe pour l'ouvrir</p>
+          <span class="envelope-tag">INVITATION OFFICIELLE EXCLUSIVE</span>
+          <p class="envelope-hint">Touchez le sceau ou le bouton pour découvrir l'invitation</p>
         </div>
 
-        <!-- L'enveloppe 3D interactive (Orange du logo) -->
+        <!-- L'enveloppe 3D interactive -->
         <div id="envelope-card" class="envelope-card" role="button" tabindex="0"
           aria-label="Cliquer pour ouvrir l'enveloppe">
 
@@ -76,7 +82,7 @@
           <!-- Pochette avant (gauche, droite, bas) -->
           <div class="envelope-pocket"></div>
 
-          <!-- Sceau officiel interactif avec pulsation -->
+          <!-- Sceau de cire officiel avec pulsation -->
           <button id="wax-seal-btn" class="wax-seal-btn" type="button" aria-label="Ouvrir le sceau de l'invitation">
             <div class="seal-ring">
               <span class="seal-icon">✉️</span>
@@ -84,6 +90,14 @@
             </div>
           </button>
         </div>
+
+        <!-- Bouton d'action CTA sous l'enveloppe -->
+        <button id="open-envelope-cta" class="btn-open-envelope" type="button">
+          <span>Ouvrir mon invitation</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+          </svg>
+        </button>
 
       </div>
     </div>
@@ -400,15 +414,6 @@
 
     </div>
   </aside>
-
-  <!-- =========================================================================
-       BOUTON FLOTTANT DE NAVIGATION INTER-SECTIONS (CENTRÉ, FOND BLANC & FLÈCHE ORANGE)
-       ========================================================================= -->
-  <button id="floating-scroll-btn" class="floating-scroll-btn" type="button" aria-label="Section suivante" title="Section suivante">
-    <svg viewBox="0 0 24 24" class="scroll-arrow-icon" aria-hidden="true">
-      <path d="M12 4.5v14.5M6.5 13.5l5.5 5.5 5.5-5.5" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
-  </button>
 
   <!-- Script Vanilla JavaScript -->
   <script src="assets/js/main.js"></script>

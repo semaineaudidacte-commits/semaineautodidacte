@@ -1120,41 +1120,33 @@ body {
   text-align: center;
 }
 
-/* En-tête au-dessus de l'enveloppe */
+/* En-tête de bienvenue */
 .envelope-header-text {
-  margin-bottom: 24px;
+  margin-bottom: 22px;
+}
+
+.envelope-tag {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--color-orange);
+  background: rgba(242, 101, 34, 0.12);
+  border: 1px solid rgba(242, 101, 34, 0.3);
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  margin-bottom: 8px;
 }
 
 .envelope-hint {
-  font-size: 14.5px;
-  color: rgba(255, 255, 255, 0.92);
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 8px 22px;
-  border-radius: var(--radius-full);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  animation: pulseHint 2.4s infinite ease-in-out;
-}
-
-@keyframes pulseHint {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 rgba(242, 101, 34, 0);
-  }
-  50% {
-    transform: scale(1.03);
-    box-shadow: 0 0 18px rgba(242, 101, 34, 0.4);
-  }
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 500;
 }
 
 /* --------------------------------------------------------------------------
-   STRUCTURE DE L'ENVELOPPE 3D (ORANGE DU LOGO)
+   STRUCTURE DE L'ENVELOPPE 3D
    -------------------------------------------------------------------------- */
 .envelope-card {
   position: relative;
@@ -1184,15 +1176,15 @@ body {
   }
 }
 
-/* Fond arrière de l'enveloppe (Orange du logo) */
+/* Fond arrière de l'enveloppe */
 .envelope-back {
   position: absolute;
   inset: 0;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, #f26522 0%, #d94e0f 50%, #c2410c 100%);
-  border: 2px solid #fb923c;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55),
-              0 0 45px rgba(242, 101, 34, 0.45);
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 2px solid #334155;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6),
+              0 0 40px rgba(242, 101, 34, 0.18);
 }
 
 /* Carte / Lettre intérieure VIP */
@@ -1206,7 +1198,7 @@ body {
   border: 1.5px solid #fed7aa;
   border-radius: 12px;
   padding: 14px 12px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   z-index: 2;
   transition: transform 0.85s cubic-bezier(0.34, 1.25, 0.64, 1) 0.35s,
               z-index 0s 0.35s;
@@ -1268,7 +1260,7 @@ body {
   color: var(--color-orange);
 }
 
-/* Rabat supérieur pliable en 3D (Orange dégradé avec reflet) */
+/* Rabat supérieur pliable en 3D */
 .envelope-flap {
   position: absolute;
   top: 0;
@@ -1276,50 +1268,48 @@ body {
   right: 0;
   height: 110px;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
-  background: linear-gradient(180deg, #ff8a4c 0%, #f26522 65%, #ea580c 100%);
+  background: linear-gradient(180deg, #2c3c52 0%, #1a2538 100%);
   border-top-left-radius: var(--radius-lg);
   border-top-right-radius: var(--radius-lg);
   transform-origin: top center;
   transform: rotateX(0deg);
   transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-  filter: drop-shadow(0 4px 6px rgba(130, 35, 5, 0.3));
   z-index: 4;
 }
 
-/* Pochette avant triangulaire (Orange riche du logo avec profondeur) */
+/* Pochette avant triangulaire */
 .envelope-pocket {
   position: absolute;
   inset: 0;
   border-radius: var(--radius-lg);
   clip-path: polygon(0 38%, 50% 68%, 100% 38%, 100% 100%, 0 100%);
-  background: linear-gradient(180deg, #f26522 0%, #ea580c 45%, #c2410c 100%);
-  border-bottom: 2px solid #ea580c;
-  box-shadow: inset 0 2px 14px rgba(90, 20, 0, 0.4);
+  background: linear-gradient(180deg, #1e293b 0%, #131c2d 100%);
+  border-bottom: 2px solid #334155;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
   pointer-events: none;
   z-index: 3;
 }
 
-/* Sceau officiel avec pulsation */
+/* Sceau de cire officiel avec pulsation */
 .wax-seal-btn {
   position: absolute;
   top: 88px;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 56px;
-  height: 56px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #fed7aa 20%, #f26522 70%, #9a3412 100%);
-  border: 2.5px solid #ffffff;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4),
-              0 0 24px rgba(242, 101, 34, 0.65),
-              inset 0 2px 5px rgba(255, 255, 255, 0.6);
+  background: radial-gradient(circle at 35% 35%, #f26522, #c2410c);
+  border: 2px solid #fcd34d;
+  box-shadow: 0 8px 22px rgba(242, 101, 34, 0.5),
+              inset 0 2px 4px rgba(255, 255, 255, 0.5);
   color: #ffffff;
   cursor: pointer;
   z-index: 5;
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: sealPulse 2.6s infinite ease-in-out;
+  animation: sealPulse 2.8s infinite ease-in-out;
   transition: transform 0.3s ease, opacity 0.3s ease;
   outline: none;
 }
@@ -1381,6 +1371,41 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
 
+/* Bouton d'action sous l'enveloppe */
+.btn-open-envelope {
+  background-color: var(--color-orange);
+  background-image: linear-gradient(135deg, #f26522 0%, #ea580c 100%);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 13px 26px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: var(--shadow-orange);
+  transition: all var(--transition-fast);
+}
+
+.btn-open-envelope:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -2px rgba(242, 101, 34, 0.5);
+}
+
+.btn-open-envelope svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  transition: transform var(--transition-fast);
+}
+
+.btn-open-envelope:hover svg {
+  transform: translateX(4px);
+}
+
 /* Bouton pour revoir l'invitation dans le footer */
 .reopen-envelope-btn {
   display: inline-block;
@@ -1401,90 +1426,6 @@ body {
   border-color: var(--color-orange);
   color: var(--color-orange);
   background: rgba(242, 101, 34, 0.05);
-}
-
-/* ==========================================================================
-   BOUTON FLOTTANT DE NAVIGATION INTER-SECTIONS (FOND BLANC & FLÈCHE ORANGE)
-   ========================================================================== */
-.floating-scroll-btn {
-  position: fixed;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background-color: #ffffff;
-  border: 1.5px solid rgba(242, 101, 34, 0.2);
-  color: var(--color-orange);
-  cursor: pointer;
-  z-index: 900;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14),
-              0 3px 10px rgba(242, 101, 34, 0.22);
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.25s ease,
-              opacity 0.3s ease,
-              visibility 0.3s ease;
-  animation: floatingArrowBounce 3.2s ease-in-out infinite;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.floating-scroll-btn:hover {
-  transform: translateX(-50%) translateY(-3px) scale(1.08);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18),
-              0 4px 14px rgba(242, 101, 34, 0.35);
-  border-color: var(--color-orange);
-}
-
-.floating-scroll-btn:active {
-  transform: translateX(-50%) translateY(1px) scale(0.96);
-}
-
-.floating-scroll-btn .scroll-arrow-icon {
-  width: 24px;
-  height: 24px;
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-/* Rotation vers le haut quand on a atteint la dernière section */
-.floating-scroll-btn.is-up .scroll-arrow-icon {
-  transform: rotate(180deg);
-}
-
-/* État masqué (lorsque l'overlay d'enveloppe ou l'écran de remerciement est affiché) */
-.floating-scroll-btn.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateX(-50%) scale(0.7) translateY(20px);
-}
-
-@keyframes floatingArrowBounce {
-  0%, 100% {
-    transform: translateX(-50%) translateY(0);
-  }
-  50% {
-    transform: translateX(-50%) translateY(6px);
-  }
-}
-
-@media (max-width: 480px) {
-  .floating-scroll-btn {
-    bottom: 20px;
-    left: 50%;
-    right: auto;
-    width: 48px;
-    height: 48px;
-  }
-
-  .floating-scroll-btn .scroll-arrow-icon {
-    width: 22px;
-    height: 22px;
-  }
 }
 
 
