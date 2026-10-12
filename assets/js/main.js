@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initOptionCheckboxes();
   initRsvpForm();
   initThankYouActions();
+  initSectionNavButton();
 });
 
 /**
@@ -211,8 +212,14 @@ function showToastNotification() {
 function showThankYouView() {
   const onePageView = document.getElementById('one-page-view');
   const thankYouView = document.getElementById('thank-you-view');
+  const floatingBtn = document.getElementById('floating-scroll-btn');
 
   if (!onePageView || !thankYouView) return;
+
+  // Masquer le bouton flottant sur la page de remerciement
+  if (floatingBtn) {
+    floatingBtn.classList.add('is-hidden');
+  }
 
   // Animation de sortie de la page 1
   onePageView.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
@@ -249,6 +256,11 @@ function initThankYouActions() {
         onePageView.style.opacity = '1';
         onePageView.style.transform = 'translateY(0)';
         window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        const floatingBtn = document.getElementById('floating-scroll-btn');
+        if (floatingBtn) {
+          floatingBtn.classList.remove('is-hidden');
+        }
 
         if (form) {
           form.reset();
@@ -350,17 +362,21 @@ function triggerConfetti() {
 }
 
 /**
- * 8. Expérience interactive d'ouverture d'enveloppe VIP
+ * 8. Expérience interactive d'ouverture d'enveloppe VIP (Orange)
  */
 function initEnvelopeExperience() {
   const overlay = document.getElementById('envelope-overlay');
   const card = document.getElementById('envelope-card');
   const waxBtn = document.getElementById('wax-seal-btn');
-  const openCta = document.getElementById('open-envelope-cta');
-  const skipBtn = document.getElementById('skip-envelope-btn');
   const reopenBtn = document.getElementById('reopen-envelope-btn');
+  const floatingBtn = document.getElementById('floating-scroll-btn');
 
   if (!overlay || !card) return;
+
+  // Masquer le bouton flottant tant que l'enveloppe est ouverte
+  if (floatingBtn && !overlay.classList.contains('is-hidden')) {
+    floatingBtn.classList.add('is-hidden');
+  }
 
   let isOpening = false;
 
@@ -379,6 +395,9 @@ function initEnvelopeExperience() {
     // Après l'animation d'extraction de la lettre, fondu gracieux vers la One Page
     setTimeout(() => {
       overlay.classList.add('is-hidden');
+      if (floatingBtn) {
+        floatingBtn.classList.remove('is-hidden');
+      }
       isOpening = false;
       try {
         sessionStorage.setItem('sad_envelope_seen', 'true');
@@ -386,16 +405,12 @@ function initEnvelopeExperience() {
     }, 1450);
   }
 
-  function skipEnvelope() {
-    overlay.classList.add('is-hidden');
-    try {
-      sessionStorage.setItem('sad_envelope_seen', 'true');
-    } catch (_) {}
-  }
-
   function reopenEnvelope() {
     overlay.classList.remove('is-hidden');
     card.classList.remove('is-open');
+    if (floatingBtn) {
+      floatingBtn.classList.add('is-hidden');
+    }
     isOpening = false;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -408,24 +423,89 @@ function initEnvelopeExperience() {
     });
   }
 
-  // Événement au clic sur le gros bouton CTA sous l'enveloppe
-  if (openCta) {
-    openCta.addEventListener('click', (e) => {
-      e.stopPropagation();
-      openEnvelope();
-    });
-  }
-
   // Clic n'importe où sur l'enveloppe pour l'ouvrir
   card.addEventListener('click', openEnvelope);
-
-  // Bouton pour passer l'animation directement
-  if (skipBtn) {
-    skipBtn.addEventListener('click', skipEnvelope);
-  }
 
   // Bouton pour revoir l'animation dans le pied de page
   if (reopenBtn) {
     reopenBtn.addEventListener('click', reopenEnvelope);
   }
+}
+
+/**
+ * 9. Bouton flottant de navigation pas-à-pas à travers les sections
+ */
+function initSectionNavButton() {
+  const floatingBtn = document.getElementById('floating-scroll-btn');
+  if (!floatingBtn) return;
+
+  const sectionIds = ['section-hero', 'section-sponsors', 'section-program', 'section-rsvp'];
+
+  // Met à jour la direction de la flèche (vers le bas ou vers le haut) selon le défilement
+  function updateArrowDirection() {
+    const scrollPos = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+    const lastSection = document.getElementById('section-rsvp');
+
+    let isAtEnd = false;
+
+    // Si on est à proximité de la fin du document
+    if (scrollPos + windowHeight >= docHeight - 80) {
+      isAtEnd = true;
+    } else if (lastSection) {
+      const rect = lastSection.getBoundingClientRect();
+      // Si la section formulaire RSVP est déjà dans le haut de l'écran
+      if (rect.top <= 140) {
+        isAtEnd = true;
+      }
+    }
+
+    if (isAtEnd) {
+      floatingBtn.classList.add('is-up');
+      floatingBtn.setAttribute('title', 'Retour en haut de page');
+      floatingBtn.setAttribute('aria-label', 'Retour en haut de page');
+    } else {
+      floatingBtn.classList.remove('is-up');
+      floatingBtn.setAttribute('title', 'Section suivante');
+      floatingBtn.setAttribute('aria-label', 'Section suivante');
+    }
+  }
+
+  floatingBtn.addEventListener('click', () => {
+    // Si la flèche est retournée vers le haut, retour immédiat en haut de la page
+    if (floatingBtn.classList.contains('is-up')) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    // Trouver la prochaine section située sous le champ de vision actuel
+    const sections = sectionIds
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+
+    let nextSection = null;
+    for (const sec of sections) {
+      const rect = sec.getBoundingClientRect();
+      // Section située sous les 80 premiers pixels du viewport
+      if (rect.top > 80) {
+        nextSection = sec;
+        break;
+      }
+    }
+
+    if (nextSection) {
+      const headerOffset = 15;
+      const targetY = nextSection.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+      window.scrollTo({
+        top: Math.max(0, targetY),
+        behavior: 'smooth'
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+
+  window.addEventListener('scroll', updateArrowDirection, { passive: true });
+  updateArrowDirection();
 }
