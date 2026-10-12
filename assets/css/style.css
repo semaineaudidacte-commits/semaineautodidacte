@@ -1045,3 +1045,386 @@ body {
   height: 16px;
   fill: currentColor;
 }
+
+/* ==========================================================================
+   EXPÉRIENCE D'OUVERTURE D'ENVELOPPE D'INVITATION VIP (3D VANILLA CSS)
+   ========================================================================== */
+.envelope-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000;
+  background: radial-gradient(circle at 50% 30%, #172439 0%, #080f1d 85%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.65s;
+}
+
+.envelope-overlay.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.05);
+}
+
+.envelope-modal {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bouton Passer en haut à droite */
+.skip-envelope-btn {
+  position: absolute;
+  top: -45px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+
+.skip-envelope-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.envelope-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* En-tête de bienvenue */
+.envelope-header-text {
+  margin-bottom: 22px;
+}
+
+.envelope-tag {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--color-orange);
+  background: rgba(242, 101, 34, 0.12);
+  border: 1px solid rgba(242, 101, 34, 0.3);
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  margin-bottom: 8px;
+}
+
+.envelope-hint {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   STRUCTURE DE L'ENVELOPPE 3D
+   -------------------------------------------------------------------------- */
+.envelope-card {
+  position: relative;
+  width: 320px;
+  height: 210px;
+  margin: 32px auto 26px;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  animation: floatEnvelope 4.5s ease-in-out infinite;
+  user-select: none;
+}
+
+@media (max-width: 380px) {
+  .envelope-card {
+    width: 285px;
+    height: 190px;
+  }
+}
+
+@keyframes floatEnvelope {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Fond arrière de l'enveloppe */
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 2px solid #334155;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6),
+              0 0 40px rgba(242, 101, 34, 0.18);
+}
+
+/* Carte / Lettre intérieure VIP */
+.envelope-letter {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 10px;
+  height: 185px;
+  background: #ffffff;
+  border: 1.5px solid #fed7aa;
+  border-radius: 12px;
+  padding: 14px 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+  transition: transform 0.85s cubic-bezier(0.34, 1.25, 0.64, 1) 0.35s,
+              z-index 0s 0.35s;
+  pointer-events: none;
+}
+
+.letter-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.letter-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.letter-logo {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+}
+
+.letter-badge {
+  font-size: 10px;
+  font-weight: 700;
+  background-color: var(--color-teal-badge);
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.letter-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--color-slate-900);
+  line-height: 1.2;
+}
+
+.letter-theme {
+  font-size: 10.5px;
+  font-style: italic;
+  color: var(--color-slate-600);
+  line-height: 1.35;
+  max-width: 250px;
+}
+
+.letter-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--color-orange);
+}
+
+/* Rabat supérieur pliable en 3D */
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 110px;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  background: linear-gradient(180deg, #2c3c52 0%, #1a2538 100%);
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+  transform-origin: top center;
+  transform: rotateX(0deg);
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 4;
+}
+
+/* Pochette avant triangulaire */
+.envelope-pocket {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  clip-path: polygon(0 38%, 50% 68%, 100% 38%, 100% 100%, 0 100%);
+  background: linear-gradient(180deg, #1e293b 0%, #131c2d 100%);
+  border-bottom: 2px solid #334155;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Sceau de cire officiel avec pulsation */
+.wax-seal-btn {
+  position: absolute;
+  top: 88px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #f26522, #c2410c);
+  border: 2px solid #fcd34d;
+  box-shadow: 0 8px 22px rgba(242, 101, 34, 0.5),
+              inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: sealPulse 2.8s infinite ease-in-out;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  outline: none;
+}
+
+@keyframes sealPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 8px 22px rgba(242, 101, 34, 0.45);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 12px 30px rgba(242, 101, 34, 0.75);
+  }
+}
+
+.seal-ring {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.seal-icon {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.seal-text {
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   ÉTAT OUVERT : ANIMATION DE L'ENVELOPPE DÉPLIÉE
+   -------------------------------------------------------------------------- */
+.envelope-card.is-open {
+  animation: none;
+}
+
+/* 1. Le sceau disparaît */
+.envelope-card.is-open .wax-seal-btn {
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 2. Le rabat supérieur s'ouvre vers le haut en 3D */
+.envelope-card.is-open .envelope-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+/* 3. La lettre s'extrait vers le haut */
+.envelope-card.is-open .envelope-letter {
+  transform: translateY(-135px) scale(1.06);
+  z-index: 6;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Bouton d'action sous l'enveloppe */
+.btn-open-envelope {
+  background-color: var(--color-orange);
+  background-image: linear-gradient(135deg, #f26522 0%, #ea580c 100%);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 13px 26px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: var(--shadow-orange);
+  transition: all var(--transition-fast);
+}
+
+.btn-open-envelope:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -2px rgba(242, 101, 34, 0.5);
+}
+
+.btn-open-envelope svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  transition: transform var(--transition-fast);
+}
+
+.btn-open-envelope:hover svg {
+  transform: translateX(4px);
+}
+
+/* Bouton pour revoir l'invitation dans le footer */
+.reopen-envelope-btn {
+  display: inline-block;
+  margin-top: 10px;
+  background: transparent;
+  border: 1px dashed var(--color-slate-300);
+  color: var(--color-slate-600);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.reopen-envelope-btn:hover {
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+  background: rgba(242, 101, 34, 0.05);
+}
+

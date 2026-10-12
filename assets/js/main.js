@@ -5,6 +5,7 @@
 const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxrhWbuJwC9Xmz-oZMZz45htNdeTeAOz7YZrBNM8mMJ8zCNikCEzxgKrgTpWGh9QpoYAQ/exec";
 
 document.addEventListener('DOMContentLoaded', () => {
+  initEnvelopeExperience();
   initScrollReveal();
   initOptionCheckboxes();
   initRsvpForm();
@@ -346,4 +347,85 @@ function triggerConfetti() {
   }
 
   render();
+}
+
+/**
+ * 8. Expérience interactive d'ouverture d'enveloppe VIP
+ */
+function initEnvelopeExperience() {
+  const overlay = document.getElementById('envelope-overlay');
+  const card = document.getElementById('envelope-card');
+  const waxBtn = document.getElementById('wax-seal-btn');
+  const openCta = document.getElementById('open-envelope-cta');
+  const skipBtn = document.getElementById('skip-envelope-btn');
+  const reopenBtn = document.getElementById('reopen-envelope-btn');
+
+  if (!overlay || !card) return;
+
+  let isOpening = false;
+
+  function openEnvelope() {
+    if (isOpening) return;
+    isOpening = true;
+
+    // Déclencher l'animation 3D sur l'enveloppe (rabat s'ouvre, lettre sort)
+    card.classList.add('is-open');
+
+    // Petite explosion de confettis festifs
+    setTimeout(() => {
+      triggerConfetti();
+    }, 320);
+
+    // Après l'animation d'extraction de la lettre, fondu gracieux vers la One Page
+    setTimeout(() => {
+      overlay.classList.add('is-hidden');
+      isOpening = false;
+      try {
+        sessionStorage.setItem('sad_envelope_seen', 'true');
+      } catch (_) {}
+    }, 1450);
+  }
+
+  function skipEnvelope() {
+    overlay.classList.add('is-hidden');
+    try {
+      sessionStorage.setItem('sad_envelope_seen', 'true');
+    } catch (_) {}
+  }
+
+  function reopenEnvelope() {
+    overlay.classList.remove('is-hidden');
+    card.classList.remove('is-open');
+    isOpening = false;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Événements d'ouverture au clic sur le sceau de cire
+  if (waxBtn) {
+    waxBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openEnvelope();
+    });
+  }
+
+  // Événement au clic sur le gros bouton CTA sous l'enveloppe
+  if (openCta) {
+    openCta.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openEnvelope();
+    });
+  }
+
+  // Clic n'importe où sur l'enveloppe pour l'ouvrir
+  card.addEventListener('click', openEnvelope);
+
+  // Bouton pour passer l'animation directement
+  if (skipBtn) {
+    skipBtn.addEventListener('click', skipEnvelope);
+  }
+
+  // Bouton pour revoir l'animation dans le pied de page
+  if (reopenBtn) {
+    reopenBtn.addEventListener('click', reopenEnvelope);
+  }
 }

@@ -27,7 +27,73 @@
     <span>INSCRIPTION ENREGISTRÉE</span>
   </div>
 
-  <!-- Canvas Confettis pour la célébration de confirmation -->
+  <!-- =========================================================================
+       EXPÉRIENCE D'OUVERTURE D'ENVELOPPE D'INVITATION VIP
+       ========================================================================= -->
+  <div id="envelope-overlay" class="envelope-overlay" aria-modal="true" role="dialog">
+    <div class="envelope-modal">
+      
+      <!-- Bouton Passer en haut à droite -->
+      <button id="skip-envelope-btn" class="skip-envelope-btn" type="button" title="Accéder directement au site">
+        <span>Passer</span> ✕
+      </button>
+
+      <div class="envelope-container">
+        
+        <!-- En-tête de bienvenue au-dessus de l'enveloppe -->
+        <div class="envelope-header-text">
+          <span class="envelope-tag">INVITATION OFFICIELLE EXCLUSIVE</span>
+          <p class="envelope-hint">Touchez le sceau ou le bouton pour découvrir l'invitation</p>
+        </div>
+
+        <!-- L'enveloppe 3D interactive -->
+        <div id="envelope-card" class="envelope-card" role="button" tabindex="0" aria-label="Cliquer pour ouvrir l'enveloppe">
+          
+          <!-- Fond intérieur de l'enveloppe -->
+          <div class="envelope-back"></div>
+
+          <!-- Carte / Lettre VIP intérieure qui sort -->
+          <div class="envelope-letter">
+            <div class="letter-inner">
+              <div class="letter-top">
+                <img src="assets/img/logo-maquette.png" alt="Logo Officiel" class="letter-logo">
+                <span class="letter-badge">2ᵉ Édition • 2026</span>
+              </div>
+              <h3 class="letter-title">Semaine de l'Autodidacte</h3>
+              <p class="letter-theme">« Autodidacte, Résilience et Innovation »</p>
+              <div class="letter-footer">
+                <span class="letter-location">📍 Ouagadougou</span>
+                <span class="letter-dates">📅 30 Oct – 1er Nov</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rabat supérieur (flotteur 3D) -->
+          <div class="envelope-flap"></div>
+
+          <!-- Pochette avant (gauche, droite, bas) -->
+          <div class="envelope-pocket"></div>
+
+          <!-- Sceau de cire officiel avec pulsation -->
+          <button id="wax-seal-btn" class="wax-seal-btn" type="button" aria-label="Ouvrir le sceau de l'invitation">
+            <div class="seal-ring">
+              <span class="seal-icon">✉️</span>
+              <span class="seal-text">OUVRIR</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Bouton d'action CTA sous l'enveloppe -->
+        <button id="open-envelope-cta" class="btn-open-envelope" type="button">
+          <span>Ouvrir mon invitation</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Canvas Confettis pour la célébration de confirmation et ouverture -->
   <canvas id="confetti-canvas" aria-hidden="true"></canvas>
 
   <!-- =========================================================================
@@ -262,6 +328,9 @@
     <!-- PIED DE PAGE -->
     <footer class="site-footer">
       <p>© 2026 Semaine de l'Autodidacte • 2ᵉ Édition • Ouagadougou, Burkina Faso</p>
+      <button id="reopen-envelope-btn" class="reopen-envelope-btn" type="button" title="Revoir l'ouverture de l'invitation">
+        ✉️ Revoir l'animation d'invitation
+      </button>
     </footer>
 
   </main>
