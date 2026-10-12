@@ -255,8 +255,8 @@ function initThankYouActions() {
           document.querySelectorAll('.day-option-card').forEach(card => {
             const cb = card.querySelector('input[type="checkbox"]');
             if (cb) {
-              cb.checked = true;
-              card.classList.add('is-checked');
+              cb.checked = false;
+              card.classList.remove('is-checked');
             }
           });
         }
