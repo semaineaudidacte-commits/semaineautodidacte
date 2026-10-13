@@ -438,7 +438,7 @@ function initSectionNavButton() {
     floatingBtn.classList.add('is-hidden');
   }
 
-  const sectionIds = ['section-hero', 'section-sponsors', 'section-program', 'section-rsvp'];
+  const sectionIds = ['section-hero', 'section-sponsors', 'section-program', 'section-location', 'section-rsvp'];
 
   // Met à jour la direction de la flèche (vers le bas ou vers le haut) selon le défilement
   function updateArrowDirection() {

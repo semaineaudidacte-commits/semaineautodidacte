@@ -529,6 +529,96 @@ body {
 }
 
 /* --------------------------------------------------------------------------
+   SECTION LOCALISATION : PAREIL QUE CELLE DU FORMULAIRE
+   -------------------------------------------------------------------------- */
+.location-section {
+  width: 100%;
+  margin-bottom: 48px;
+}
+
+.location-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-slate-200);
+  border-radius: var(--radius-xl);
+  padding: 32px 20px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+}
+
+.location-card:hover {
+  box-shadow: 0 16px 40px -8px rgba(15, 23, 42, 0.08);
+}
+
+@media (min-width: 480px) {
+  .location-card {
+    padding: 38px 28px;
+  }
+}
+
+/* Bouton en pilule de fond vert intitulé Grand Calao */
+.btn-location-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #16a34a;
+  background-image: linear-gradient(135deg, #22c55e 0%, #16a34a 55%, #15803d 100%);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 14px 34px;
+  box-shadow: 0 8px 24px -4px rgba(22, 163, 74, 0.45), 0 3px 8px -2px rgba(15, 23, 42, 0.06);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+/* Effet de brillance (shimmer) traversant la pilule */
+.btn-location-pill::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-25deg);
+  animation: buttonShine 4s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.btn-location-pill:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 30px -2px rgba(22, 163, 74, 0.55), 0 6px 12px -2px rgba(15, 23, 42, 0.1);
+}
+
+.btn-location-pill:active {
+  transform: scale(0.98);
+}
+
+.btn-location-pill .pill-pin-svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.btn-location-pill:hover .pill-pin-svg {
+  transform: translateY(-2px) scale(1.12);
+}
+
+/* --------------------------------------------------------------------------
    SECTION FORMULAIRE : CONFIRMER VOTRE PRÉSENCE
    -------------------------------------------------------------------------- */
 .rsvp-section {
