@@ -369,7 +369,6 @@ function initEnvelopeExperience() {
   const card = document.getElementById('envelope-card');
   const waxBtn = document.getElementById('wax-seal-btn');
   const openCta = document.getElementById('open-envelope-cta');
-  const skipBtn = document.getElementById('skip-envelope-btn');
   const floatingBtn = document.getElementById('floating-scroll-btn');
 
   if (!overlay || !card) return;
@@ -406,16 +405,6 @@ function initEnvelopeExperience() {
     }, 1450);
   }
 
-  function skipEnvelope() {
-    overlay.classList.add('is-hidden');
-    if (floatingBtn) {
-      floatingBtn.classList.remove('is-hidden');
-    }
-    try {
-      sessionStorage.setItem('sad_envelope_seen', 'true');
-    } catch (_) {}
-  }
-
   // Événements d'ouverture au clic sur le sceau de cire
   if (waxBtn) {
     waxBtn.addEventListener('click', (e) => {
@@ -434,11 +423,6 @@ function initEnvelopeExperience() {
 
   // Clic n'importe où sur l'enveloppe pour l'ouvrir
   card.addEventListener('click', openEnvelope);
-
-  // Bouton pour passer l'animation directement
-  if (skipBtn) {
-    skipBtn.addEventListener('click', skipEnvelope);
-  }
 }
 
 /**
