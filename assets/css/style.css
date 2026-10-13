@@ -837,6 +837,58 @@ body {
 }
 
 /* --------------------------------------------------------------------------
+   BOUTON LOCALISER L'ÉVÈNEMENT (LIEN GOOGLE MAPS OFFICIEL)
+   -------------------------------------------------------------------------- */
+.btn-locate-event {
+  width: 100%;
+  margin-top: 12px;
+  background-color: #ffffff;
+  color: var(--color-slate-700);
+  border: 1.5px solid var(--color-slate-200);
+  border-radius: var(--radius-md);
+  padding: 13px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.btn-locate-event:hover {
+  background-color: var(--color-orange-subtle);
+  border-color: var(--color-orange);
+  color: var(--color-orange-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(242, 101, 34, 0.16);
+}
+
+.btn-locate-event:active {
+  transform: scale(0.98);
+}
+
+.btn-locate-event .locate-icon {
+  width: 19px;
+  height: 19px;
+  fill: var(--color-orange);
+  transition: transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.btn-locate-event:hover .locate-icon {
+  transform: scale(1.18) translateY(-1px);
+}
+
+.btn-locate-thankyou {
+  margin-top: 0;
+}
+
+/* --------------------------------------------------------------------------
    VUE 2 : PAGE / ÉCRAN DE REMERCIEMENT (MAQUETTE 2.JPG)
    -------------------------------------------------------------------------- */
 .thank-you-view {
