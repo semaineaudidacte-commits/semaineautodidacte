@@ -438,14 +438,14 @@ function initSectionNavButton() {
     floatingBtn.classList.add('is-hidden');
   }
 
-  const sectionIds = ['section-hero', 'section-sponsors', 'section-program', 'section-location', 'section-rsvp'];
+  const sectionIds = ['section-hero', 'section-sponsors', 'section-program', 'section-rsvp', 'section-location'];
 
   // Met à jour la direction de la flèche (vers le bas ou vers le haut) selon le défilement
   function updateArrowDirection() {
     const scrollPos = window.scrollY;
     const windowHeight = window.innerHeight;
     const docHeight = document.documentElement.scrollHeight;
-    const lastSection = document.getElementById('section-rsvp');
+    const lastSection = document.getElementById('section-location');
 
     let isAtEnd = false;
 
