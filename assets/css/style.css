@@ -337,29 +337,31 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 46px;
-  min-width: 80px;
-  padding: 4px 12px;
-  background: #ffffff;
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(226, 232, 240, 0.85);
-  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
-  opacity: 0.95;
-  transition: opacity var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  height: 48px;
+  min-width: unset;
+  padding: 0 10px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  opacity: 0.88;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
 }
 
 .sponsor-item:hover {
   opacity: 1;
-  transform: translateY(-2px) scale(1.06);
-  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+  transform: scale(1.08);
+  box-shadow: none;
 }
 
 .sponsor-item img {
-  max-height: 34px;
-  max-width: 100px;
+  max-height: 40px;
+  max-width: 120px;
   width: auto;
   height: auto;
   object-fit: contain;
+  mix-blend-mode: multiply;
+  background: transparent;
 }
 
 /* Défilement continu et fluide de la droite vers la gauche */
