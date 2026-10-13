@@ -837,51 +837,79 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   BOUTON LOCALISER L'ÉVÈNEMENT (LIEN GOOGLE MAPS OFFICIEL)
+   BOUTON LOCALISER L'ÉVÈNEMENT (MÊME STYLE QUE CONFIRMER MAIS FOND BLANC)
    -------------------------------------------------------------------------- */
 .btn-locate-event {
   width: 100%;
   margin-top: 12px;
   background-color: #ffffff;
-  color: var(--color-slate-700);
-  border: 1.5px solid var(--color-slate-200);
+  color: var(--color-orange);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  border: 2px solid var(--color-orange);
   border-radius: var(--radius-md);
-  padding: 13px 20px;
+  padding: 15px 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  font-family: var(--font-sans);
-  font-size: 14.5px;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
-  transition: all var(--transition-fast);
   cursor: pointer;
+  box-shadow: 0 4px 16px rgba(242, 101, 34, 0.14), 0 2px 6px rgba(15, 23, 42, 0.04);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+/* Balayage de lumière (shimmer) identique au bouton Confirmer */
+.btn-locate-event::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(242, 101, 34, 0.12), transparent);
+  transform: skewX(-25deg);
+  animation: buttonShine 4s infinite ease-in-out;
+  pointer-events: none;
 }
 
 .btn-locate-event:hover {
   background-color: var(--color-orange-subtle);
-  border-color: var(--color-orange);
+  border-color: var(--color-orange-dark);
   color: var(--color-orange-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(242, 101, 34, 0.16);
+  box-shadow: 0 12px 28px -2px rgba(242, 101, 34, 0.3);
 }
 
 .btn-locate-event:active {
   transform: scale(0.98);
 }
 
-.btn-locate-event .locate-icon {
-  width: 19px;
-  height: 19px;
-  fill: var(--color-orange);
-  transition: transform var(--transition-fast);
+.btn-locate-event .locate-pin {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
   flex-shrink: 0;
+  transition: transform var(--transition-fast);
 }
 
-.btn-locate-event:hover .locate-icon {
-  transform: scale(1.18) translateY(-1px);
+.btn-locate-event .locate-arrow {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.btn-locate-event:hover .locate-pin {
+  transform: scale(1.15);
+}
+
+.btn-locate-event:hover .locate-arrow {
+  transform: translateX(5px);
 }
 
 .btn-locate-thankyou {
